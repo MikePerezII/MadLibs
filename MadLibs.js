@@ -2,7 +2,7 @@ var sentence = [];
 var index = 0;
 var replacements = [];
 
-function populate(sarray, sprompt, index){
+function populate(sarray,sprompt,index){
 	do {
 	sarray[index] = prompt(sprompt + index + ":");
 	index++;
@@ -11,31 +11,29 @@ function populate(sarray, sprompt, index){
 
 	return sarray;
 }
+function swap(sarray,rarray,sprompt,index){
+for (index = 0; index < rarray.length - 1; index++){
+	sarray[rarray[index]]= prompt(sprompt + sarray[rarray[index]] + ".");	
+}
+	return sarray;
+}
 
 //Getting the sentence ^^
 
-alert(populate(sentence, "Word", 0));
+populate(sentence, "Word",0);
 
 //Getting the replacements ^^
 
-alert(populate(replacements, "Position", 0));
-
+populate(replacements, "Position",0);
 
 //Getting the PoS
 
-for (index = 0; index < replacements.length - 1; index++){
-	sentence[replacements[index]]= prompt("Enter the PoS for "+sentence[replacements[index]]);
-}
+swap(sentence,replacements,"Enter the PoS for ",0);
 
-console.log(sentence);
 
 //Replacements 
 
-for (index = 0; index < replacements.length - 1; index++){
-	sentence[replacements[index]]= prompt("Enter a "+sentence[replacements[index]]);
-}
-
-console.log(sentence);
+swap(sentence,replacements,"Enter a ",0);
 
 sentence.splice(-1,1);
 sentenceString = sentence.join(' ');
